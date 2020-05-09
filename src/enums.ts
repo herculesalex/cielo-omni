@@ -14,6 +14,11 @@ export enum EnumCardType {
   DEBIT = 'DebitCard'
 }
 
+export enum EnumPhysicalCardType {
+  CREDIT = 'PhysicalCreditCard',
+  DEBIT = 'PhysicalDebitCard'
+}
+
 export enum EnumBrands {
   VISA = 'VISA',
   MASTER = 'MASTER',
@@ -24,6 +29,24 @@ export enum EnumBrands {
   DINERS = 'DINERS',
   DISCOVERY = 'DISCOVERY',
   HIPERCARD = 'HIPERCARD'
+}
+
+export enum EnumInputMode {
+  TYPED = 'Typed',
+  MAGSTRIPE = 'MagStripe',
+  EMV = 'Emv'
+}
+
+export enum EnumAuthenticationMethod {
+  NOPASSWORD = 'NoPassword',
+  ONLINEAUTHENTICATION = 'OnlineAuthentication',
+  OFFLINEAUTHENTICATION = 'OfflineAuthentication'
+}
+
+export enum EnumSecurityCodeStatus {
+  COLLECTED = 'Collected',
+  UNREADABLE = 'Unreadable',
+  NONEXISTENT = 'Nonexistent'
 }
 
 export enum EnumRecurrentPaymentInterval {
@@ -40,4 +63,13 @@ export enum EnumRecurrentPaymentUpdateInterval {
   QUARTERLY = 3,
   SEMIANNUAL = 6,
   ANNUAL = 12,
+}
+
+export enum EnumPinPadPhysicalCharacteristics {
+  WITHOUTPINPAD = 'WithoutPinPad',
+  PINPADWITHOUTCHIPREADER = 'PinpadWithoutChipReader',
+  PINPADWITHCHIPREADERWITHOUTSAMMODULE = 'PinPadWithChipReaderWithoutSamModule',
+  PINPADWITHCHIPREADERWITHSAMMODULE = 'PinPadWithChipReaderWithSamModule',
+  PINPADWITHCHIPREADERWITHOUTSAMANDCONTACTLESS = 'PinpadWithChipReaderWithoutSamAndContactless',
+  PINPADWITHCHIPREADERWITHSAMANDCONTACTLESS = 'PinpadWithChipReaderWithSamAndContactless',
 }

@@ -3,6 +3,6 @@ import { PaymentRequestModel } from "../payment.request.model";
 
 export interface TransactionCreditCardRequestModel {
   merchantOrderId: string;
-  customer: CustomerModel;
+  // customer: CustomerModel;
   payment: PaymentRequestModel;
 }

@@ -7,7 +7,8 @@ import {
   TransactionCreditCardResponseModel,
   CaptureRequestModel,
   CaptureResponseModel,
-  CancelTransactionRequestModel
+  CancelTransactionRequestModel,
+  TransactionPhysicalCreditCardRequestModel,
 } from '../models/credit-card';
 
 export class CreditCard {
@@ -88,4 +89,32 @@ export class CreditCard {
         .catch((err) => reject(err));
     });
   }
+
+
+// transaction da plataforma OMNI
+
+public physicaltransaction(transaction: TransactionPhysicalCreditCardRequestModel): Promise<TransactionCreditCardResponseModel> {
+  return new Promise<TransactionCreditCardResponseModel>(
+    (resolve, reject) => {
+      const util = new Utils(this.cieloTransactionParams);
+      const options: IHttpRequestOptions = util.getHttpRequestOptions({
+        method: HttpRequestMethodEnum.POST,
+        path: "/1/physicalSales",
+        hostname: this.cieloTransactionParams.hostnameTransacao,
+      });
+
+      util.httpRequest(options, transaction)
+        .then((response) => {
+          return resolve(
+            camelcaseKeys(response.data, {
+              deep: true,
+            }) as TransactionCreditCardResponseModel
+          );
+        })
+        .catch((err) => reject(err));
+    }
+  );
+}
+
+
 }
